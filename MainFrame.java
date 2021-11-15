@@ -2,9 +2,12 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,84 +22,118 @@ public class MainFrame extends JFrame implements ItemListener{
     final static String CONE = "Card for cone";
     final static String CYLINDER = "Card for cylinder";
     final static String TORUS = "Card for Torus";
-    JPanel cards;
+    private JPanel cardsPanel;                                                                  //JPanel to hold cards
+    private CardLayout card = new CardLayout();                                                                    
 
     // private String shape;
-    // JButton selectShape;
+    JButton selectShape = new JButton("Test");
+
+    // Create the panels that contain our cards
+    JPanel circleCard = new JPanel();
+    JPanel squareCard = new JPanel();
+    JPanel triangleCard = new JPanel();
+    JPanel rectangleCard = new JPanel();
+    JPanel sphereCard = new JPanel();
+    JPanel cubeCard = new JPanel();
+    JPanel coneCard = new JPanel();
+    JPanel cylinderCard = new JPanel();
+    JPanel torusCard = new JPanel();
 
 
     public MainFrame(String title){
         super(title);
 
-        //selectShape = new JButton("Select Shape");
-
         JPanel comboBoxPane = new JPanel();
+        JLabel selectionLabel = new JLabel("Select your shape");
 
-        Object[] shapeList = { "Circle", "Square", "Triangle", "Rectangle", "Sphere", "Cube", "Cone", "Cylinder", "Torus" };
+        String[] shapeList = { "Circle", "Square", "Triangle", "Rectangle", "Sphere", "Cube", "Cone", "Cylinder", "Torus" };
         JComboBox comboBox = new JComboBox<>(shapeList);
+        
         comboBox.setEditable(false);
         comboBox.addItemListener(this);
+        comboBoxPane.add(selectionLabel);
         comboBoxPane.add(comboBox);
+        comboBoxPane.add(selectShape);
+
+        selectShape.setEnabled(false);
+        
+        
 
 
-        // Create the panels that contain our cards
-        JPanel circleCard = new JPanel();
-        circleCard.add(new JTextField("Circle", 20));
+        // // Create the panels that contain our cards
+        // JPanel circleCard = new JPanel();
+        // JPanel squareCard = new JPanel();
+        // JPanel triangleCard = new JPanel();
+        // JPanel rectangleCard = new JPanel();
+        // JPanel sphereCard = new JPanel();
+        // JPanel cubeCard = new JPanel();
+        // JPanel coneCard = new JPanel();
+        // JPanel cylinderCard = new JPanel();
+        // JPanel torusCard = new JPanel();
+        
+        cardsPanel = new JPanel(new CardLayout());
+        // card = new CardLayout();
+        cardsPanel.setLayout(card);
 
-        JPanel squareCard = new JPanel();
-        squareCard.add(new JTextField("Square", 20));
+        cardsPanel.add(circleCard, CIRCLE);
+        cardsPanel.add(squareCard, SQUARE);
+        cardsPanel.add(triangleCard, TRIANGLE);
+        cardsPanel.add(rectangleCard, RECTANGLE);
+        cardsPanel.add(sphereCard, SPHERE);
+        cardsPanel.add(cubeCard, CUBE);
+        cardsPanel.add(coneCard, CONE);
+        cardsPanel.add(cylinderCard, CYLINDER);
+        cardsPanel.add(torusCard, TORUS);
 
-        JPanel triangleCard = new JPanel();
-        triangleCard.add(new JTextField("Triangle", 20));
-
-        JPanel rectangleCard = new JPanel();
-        rectangleCard.add(new JTextField("Rectangle", 20));
-
-        JPanel sphereCard = new JPanel();
-        sphereCard.add(new JTextField("Sphere", 20));
-
-        JPanel cubeCard = new JPanel();
-        cubeCard.add(new JTextField("Cube", 20));
-
-        JPanel coneCard = new JPanel();
-        coneCard.add(new JTextField("Cone", 20));
-
-        JPanel cylinderCard = new JPanel();
-        cylinderCard.add(new JTextField("Cylinder", 20));
-
-        JPanel torusCard = new JPanel();
-        torusCard.add(new JTextField("Torus", 20));
-
-        cards = new JPanel(new CardLayout());
-        cards.add(circleCard, CIRCLE);
-        cards.add(squareCard, SQUARE);
-        cards.add(triangleCard, TRIANGLE);
-        cards.add(rectangleCard, RECTANGLE);
-        cards.add(sphereCard, SPHERE);
-        cards.add(cubeCard, CUBE);
-        cards.add(coneCard, CONE);
-        cards.add(cylinderCard, CYLINDER);
-        cards.add(torusCard, TORUS);
-
+        
         this.add(comboBoxPane, BorderLayout.PAGE_START);
-        this.add(cards, BorderLayout.CENTER);
+        this.add(cardsPanel, BorderLayout.CENTER);
 
     }
 
 
     @Override
-    public void itemStateChanged(ItemEvent e) {
-        // TODO Auto-generated method stub
+    public void itemStateChanged(ItemEvent event) {
+        CardLayout cl = (CardLayout) cardsPanel.getLayout();
+        cl.show(cardsPanel, (String)event.getItem());  
+
+        selectShape.setEnabled(true);
+       
+        //get selection from comboBox
+        String selectedValue = (String) event.getItem().toString();
+        System.out.println("Selected value : " + selectedValue);
+
+        //check string for shape comparison
+        switch(selectedValue){
+            case "Circle" :
+
+            break;
+            case "Square":
+
+            break;
+            case "Triangle" :
+
+            break;
+            case "Rectangle" :
+
+            break;
+            case "Sphere":
+
+            break;
+            case "Cube":
+
+            break;
+            case "Cone" :
+
+            break;
+            case "Cylinder" :
+
+            break;
+            case "Torus":
+            
+            break;
+        }
         
+            
     }
-
-    // public void shapeSelectionChange(Item event){
-    //     CardLayout cl = (CardLayout)(cards.getLayout());
-    //     cl.show(cards, (String)event.getItem());
-    // }
-    
 }
-
-
-// JOptionPane.showMessageDialog(null, comboBox, "Please select a shape", JOptionPane.QUESTION_MESSAGE);
-// frame.add(comboBox);
