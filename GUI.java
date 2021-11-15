@@ -14,13 +14,16 @@ public class GUI {
             public void run(){
                 JFrame frame = new MainFrame("Project 2 Shapes");
 
-                frame.setSize(300,300);
+                frame.setSize(400,400);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
             }
             
 
         });
+
+
     }
     
 }
