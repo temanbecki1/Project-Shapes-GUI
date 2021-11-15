@@ -1,139 +1,247 @@
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
-public class MainFrame extends JFrame implements ItemListener{
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MainFrame extends JFrame{
     final static boolean shouldFill = true;
-    final static String CIRCLE = "Card for circle";
-    final static String SQUARE = "Card for square";
-    final static String TRIANGLE = "Card for triangle";
-    final static String RECTANGLE = "Card for rectangle";
-    final static String SPHERE = "Card for Sphere";
-    final static String CUBE = "Card for Sphere";
-    final static String CONE = "Card for cone";
-    final static String CYLINDER = "Card for cylinder";
-    final static String TORUS = "Card for Torus";
-    private JPanel cardsPanel;                                                                  //JPanel to hold cards
-    private CardLayout card = new CardLayout();                                                                    
 
     // private String shape;
-    JButton selectShape = new JButton("Test");
+    private JButton[] selectShape;
+    JPanel drawings;
 
-    // Create the panels that contain our cards
-    JPanel circleCard = new JPanel();
-    JPanel squareCard = new JPanel();
-    JPanel triangleCard = new JPanel();
-    JPanel rectangleCard = new JPanel();
-    JPanel sphereCard = new JPanel();
-    JPanel cubeCard = new JPanel();
-    JPanel coneCard = new JPanel();
-    JPanel cylinderCard = new JPanel();
-    JPanel torusCard = new JPanel();
+
 
 
     public MainFrame(String title){
         super(title);
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
 
-        JPanel comboBoxPane = new JPanel();
-        JLabel selectionLabel = new JLabel("Select your shape");
+        JButton circleButton = new JButton("Circle");
+        JButton squareButton = new JButton("Square");
+        JButton triangleButton = new JButton("Triangle");
+        JButton rectangleButton = new JButton("Rectangle");
+        JButton sphereButton = new JButton("Sphere");
+        JButton cubeButton = new JButton("Cube");
+        JButton coneButton = new JButton("Cone");
+        JButton cylinderButton = new JButton("Cylinder");
+        JButton torusButton = new JButton("Torus");
 
-        String[] shapeList = { "Circle", "Square", "Triangle", "Rectangle", "Sphere", "Cube", "Cone", "Cylinder", "Torus" };
-        JComboBox comboBox = new JComboBox<>(shapeList);
-        
-        comboBox.setEditable(false);
-        comboBox.addItemListener(this);
-        comboBoxPane.add(selectionLabel);
-        comboBoxPane.add(comboBox);
-        comboBoxPane.add(selectShape);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weighty = 0.25;                                         //give small spacing between our rows on the y axis
+        gbc.weightx = 0.25;
+        gbc.anchor = GridBagConstraints.CENTER;
+        this.add(circleButton, gbc);
 
-        selectShape.setEnabled(false);
-        
-        
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(squareButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(triangleButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(rectangleButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(sphereButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(cubeButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(coneButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(cylinderButton, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        this.add(torusButton, gbc);
+
+        circleButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Circle")){
+                    System.out.println("Circle is selected");
+                }
+                
+            }
+
+        });
+
+        squareButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Square")){
+                    System.out.println("Square is selected");
+                }
+                
+            }
+
+        });
+
+        triangleButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Triangle")){
+                    System.out.println("Triangle is selected");
+                }
+                
+            }
+
+        });
+
+        rectangleButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Rectangle")){
+                    System.out.println("Rectangle is selected");
+                }
+                
+            }
+
+        });
+
+        sphereButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Sphere")){
+                    System.out.println("Sphere is selected");
+                }
+                
+            }
+
+        });
+
+        cubeButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Cube")){
+                    System.out.println("Cube is selected");
+                }
+                
+            }
+
+        });
+
+        coneButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Cone")){
+                    System.out.println("Cone is selected");
+                }
+                
+            }
+
+        });
+
+        cylinderButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Cylinder")){
+                    System.out.println("Cylinder is selected");
+                }
+                
+            }
+
+        });
+
+        torusButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selected = e.getActionCommand();
+                if(selected.equals("Torus")){
+                    System.out.println("Torus is selected");
+                }
+                
+            }
+
+        });
 
 
-        // // Create the panels that contain our cards
-        // JPanel circleCard = new JPanel();
-        // JPanel squareCard = new JPanel();
-        // JPanel triangleCard = new JPanel();
-        // JPanel rectangleCard = new JPanel();
-        // JPanel sphereCard = new JPanel();
-        // JPanel cubeCard = new JPanel();
-        // JPanel coneCard = new JPanel();
-        // JPanel cylinderCard = new JPanel();
-        // JPanel torusCard = new JPanel();
-        
-        cardsPanel = new JPanel(new CardLayout());
-        // card = new CardLayout();
-        cardsPanel.setLayout(card);
 
-        cardsPanel.add(circleCard, CIRCLE);
-        cardsPanel.add(squareCard, SQUARE);
-        cardsPanel.add(triangleCard, TRIANGLE);
-        cardsPanel.add(rectangleCard, RECTANGLE);
-        cardsPanel.add(sphereCard, SPHERE);
-        cardsPanel.add(cubeCard, CUBE);
-        cardsPanel.add(coneCard, CONE);
-        cardsPanel.add(cylinderCard, CYLINDER);
-        cardsPanel.add(torusCard, TORUS);
+        // JPanel shapeSelectionPanel = new JPanel();                                          //initial panel to hold shape identifier buttons
+        // shapeSelectionPanel.setLayout(new GridLayout(9,1));                                 //sets layout manager for this Panel
+                
+        // String[] shapeList = { "Circle", "Square", "Triangle", "Rectangle", "Sphere", "Cube", "Cone", "Cylinder", "Torus" };
 
-        
-        this.add(comboBoxPane, BorderLayout.PAGE_START);
-        this.add(cardsPanel, BorderLayout.CENTER);
+        // selectShape = new JButton[shapeList.length];
 
+        // for(int i=0; i < selectShape.length; i++){                                          //for loop to add each JButton to the shapeSelectionPanel
+        //     selectShape[i] = new JButton(shapeList[i]);                                     //initializes respective index to JButton
+        //     selectShape[i].addActionListener(this);                                         //adds actionListeners to each JButton
+            
+        //     shapeSelectionPanel.add(selectShape[i]);                                        //adds each selectedShape to the shapeSelectionPanel
+        // }
+
+        // add(shapeSelectionPanel,BorderLayout.CENTER);                                       //adds the shapeSelectionPanel to the mainFrame
+          
     }
 
 
-    @Override
-    public void itemStateChanged(ItemEvent event) {
-        CardLayout cl = (CardLayout) cardsPanel.getLayout();
-        cl.show(cardsPanel, (String)event.getItem());  
 
-        selectShape.setEnabled(true);
-       
-        //get selection from comboBox
-        String selectedValue = (String) event.getItem().toString();
-        System.out.println("Selected value : " + selectedValue);
 
-        //check string for shape comparison
-        switch(selectedValue){
-            case "Circle" :
-
-            break;
-            case "Square":
-
-            break;
-            case "Triangle" :
-
-            break;
-            case "Rectangle" :
-
-            break;
-            case "Sphere":
-
-            break;
-            case "Cube":
-
-            break;
-            case "Cone" :
-
-            break;
-            case "Cylinder" :
-
-            break;
-            case "Torus":
-            
-            break;
-        }
+    // @Override
+    // public void actionPerformed(ActionEvent e) {
+    //     String selected = e.getActionCommand();
+    //     if(selected.equals("Circle")){
+    //         System.out.println("Circle is selected");
+    //     }
         
-            
-    }
+    // }
+
 }
