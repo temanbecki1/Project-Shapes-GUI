@@ -134,8 +134,17 @@ public class MainFrame extends JFrame{
                         String sideLength = JOptionPane.showInputDialog("Enter a side length : ");
                         
                         if(isNumeric(sideLength)){
-                            //TODO
                             //draw square
+                            JFrame frame = new JFrame();
+                            JLabel jlabel = new JLabel("Your square :");
+                            frame.add(jlabel, BorderLayout.PAGE_START);
+
+                            Square mySquare = new Square();
+
+                            frame.add(mySquare);
+                            frame.setSize(400,400);
+                            frame.setVisible(true);
+
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid side length input" );
@@ -191,59 +200,34 @@ public class MainFrame extends JFrame{
                         
                         if(isNumeric(baseLength) && isNumeric(heightLength)){ 
 
-                            final double compareRatioOne = 1/3 ;
-                            final double compareRatioTwo = 1/4 ;
-                            final double compareRatioThree = 1/6;
+                            final double compareRatioOne = 0.7 ;                            //closer ratio to 1 = more like square shape
+                            final double compareRatioTwo = 0.4 ;
+                            
+                            String size = "";
 
                             JFrame frame = new JFrame();
                             JLabel jlabel = new JLabel("Your rectangle:");
                             frame.add(jlabel, BorderLayout.PAGE_START);
+                            
 
                             double ratio = Math.min(Double.valueOf(baseLength), Double.valueOf(heightLength)) / Math.max(Double.valueOf(baseLength), Double.valueOf(heightLength));
-                            
-                            // if(ratio > compareRatioThree){
-                            //     //create new rectangle with smaller difference in side lengths
-                            //     Rectangle myRectangle = new Rectangle(160, 80, 45, 150);
+                            System.out.println("Ratio is :  " + ratio);
+                            System.out.println("compareRatioOne is :  " + compareRatioOne);
 
-                            //     frame.add(myRectangle);
-                            //     frame.setSize(400,400);
-                            //     frame.setVisible(true);
-                            // } else if (ratio > compareRatioTwo){
-                            //     //create new rectangle with increasing difference in side lengths
-                            //     Rectangle myRectangle = new Rectangle(160, 80, 60, 125);
+                        
+                            if(ratio > compareRatioOne){
+                                size = "small";
+                                System.out.println("Size = :  " + size);
+                            } else if(ratio > compareRatioTwo){
+                                size = "medium";
+                                System.out.println("Size = :  " + size);
+                            } else size = "large" ;
 
-                            //     frame.add(myRectangle);
-                            //     frame.setSize(400,400);
-                            //     frame.setVisible(true);
-                            // } else {
-                            //     Rectangle myRectangle = new Rectangle(160, 80, 60, 150);
-
-                            //     frame.add(myRectangle);
-                            //     frame.setSize(400,400);
-                            //     frame.setVisible(true);
-                            // }
-
-                            Rectangle myRectangle = new Rectangle();
-                            // JFrame frame = new JFrame();
-                            // JLabel jlabel = new JLabel("Your rectangle:");
-                            // frame.add(jlabel, BorderLayout.PAGE_START);
+                            Rectangle myRectangle = new Rectangle(size);
 
                             frame.add(myRectangle);
                             frame.setSize(400,400);
                             frame.setVisible(true);
-
-                            // JFrame jframeRectangle = new JFrame();
-                            // Color color = Color.BLUE;
-                            // Rectangle myRectangle = new Rectangle(title, 50, 50, 0, 0, color);
-
-                            // jframeRectangle.add(myRectangle.paint(null));
-
-                            // jframeRectangle.add(myRectangle, BorderLayout.CENTER);
-                            // jframeRectangle.setSize(new Dimension(400,400));
-                            // jframeRectangle.setVisible(true);
-                            
-                            // Graphics graphic;
-                            // myRectangle.paint(graphic);
 
                             break;
                         } else {

@@ -8,55 +8,41 @@ import java.awt.*;
 public class Rectangle extends Canvas {
     private int base;
     private int height;
-    private JPanel panel;
-    private Graphics graphics;
-    private Color color;
-    private int startX;
-    private int startY;
+    private String size;
 
     public Rectangle() {
     }
 
     public Rectangle(String size){
+        this.size = size;
 
     }
-    // public Rectangle(int startX, int startY, int base, int height) {
-    //     this.base = base;
-    //     this.height = height;
-    //     this.startX = startX;
-    //     this.startY = startY;
-
-    // }
-
-
-
 
     public void paint(Graphics g){
 
-        g.setColor(Color.BLACK);
-        
-        g.fillRect(50, 50, 120,80);        
+        // g.setColor(Color.BLACK);
+                
+        switch(size){
+            case "small" : 
+                g.setColor(Color.RED);
+                g.fillRect(50, 50, 200, 165);
+                
+                System.out.println("Printing from case small");
+                break;
+            case "medium" : 
+                g.setColor(Color.BLACK);
+                g.fillRect(50, 50, 200, 115 );
+                
+                System.out.println("Printing from case medium");
+                break;
+            case "large" : 
+                g.setColor(Color.GREEN);
+                g.fillRect(50, 50, 200, 70);
+                System.out.println("Printing from case Large");
+                break;
+            default : 
+                break;
 
-    }
-
-
-
-
-
-    // public Rectangle(double base, double height){
-    //     this.base = base;
-    //     this.height = height;
-    // }
-
-    // //method to draw and return rectangle to JPanel
-
-    // public void draw(Graphics g){
-    //     g.setColor(Color.GREEN);
-    //     g.fillRect(100, 100, 50, 50);     
-    // }
-
-    // public double getArea(){
-    //     return base * height;
-    // }
-    
+        }
+    }   
 }
