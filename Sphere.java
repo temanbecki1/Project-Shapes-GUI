@@ -1,12 +1,20 @@
 import java.awt.*;
-import java.awt.image.*;
+// import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
+
+/*
+*Author : Teman Beck
+*CMSC 335 Project 2
+*Date : November 15th, 2021
+*This class extends our GUI class and adds all relative Java Swing components to the GUI
+*This class adds action listeners and functionality to all shape buttons.
+*/
+
 
 
 
@@ -14,8 +22,6 @@ public class Sphere extends Canvas{
     //File file = new File("C:/Users/Smokez/Desktop/Java Projects/CMSC 335/Project 2/sphere.jpg"); 
     String fileName = "C:/Users/Smokez/Desktop/Java Projects/CMSC 335/Project 2/sphere.jpg" ;
     Image image = null;
-
-    
 
     public Sphere(){
          

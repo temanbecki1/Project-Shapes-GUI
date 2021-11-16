@@ -14,7 +14,7 @@ public class GUI {
             public void run(){
                 JFrame frame = new MainFrame("Project 2 Shapes");
 
-                frame.setSize(400,400);
+                frame.setSize(500,500);
                 frame.setVisible(true);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 

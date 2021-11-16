@@ -5,14 +5,23 @@ import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
+// import java.awt.Color;
+// import java.awt.Dimension;
+// import java.awt.Graphics;
+// import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
+/*
+*Author : Teman Beck
+*CMSC 335 Project 2
+*Date : November 15th, 2021
+*This class extends our GUI class and adds all relative Java Swing components to the GUI
+*This class adds action listeners and functionality to all shape buttons.
+*/
 
 public class MainFrame extends JFrame{
     final static boolean shouldFill = true;
@@ -268,13 +277,9 @@ public class MainFrame extends JFrame{
                         
                         if(isNumeric(radius)){
 
-
-                            JFrame frame = new JFrame();
-                            JLabel jlabel = new JLabel("Your sphere :");
-                            frame.add(jlabel, BorderLayout.PAGE_START);
-
                             Sphere mySphere = new Sphere();
                             mySphere.drawGraphics();
+
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid radius input" );
@@ -299,7 +304,8 @@ public class MainFrame extends JFrame{
                         String edgeLength = JOptionPane.showInputDialog("Enter an edge length : ");
                         
                         if(isNumeric(edgeLength)){
-                            //read cube image from file
+                            Cube myCube = new Cube();
+                            myCube.drawGraphics();
 
                             break;
                         } else {
@@ -326,8 +332,8 @@ public class MainFrame extends JFrame{
                         String heightLength = JOptionPane.showInputDialog("Enter the height length");
                         
                         if(isNumeric(radius) && isNumeric(heightLength)){
-                            //TODO
-                            //draw cone
+                            Cone myCone = new Cone();
+                            myCone.drawGraphics();
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid radius or height length input" );
@@ -353,8 +359,8 @@ public class MainFrame extends JFrame{
                         String heightLength = JOptionPane.showInputDialog("Enter the height length");
                         
                         if(isNumeric(radius) && isNumeric(heightLength)){
-                            //TODO
-                            //draw cylinder
+                            Cylinder myCylinder = new Cylinder();
+                            myCylinder.drawGraphics();
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid radius or height length input" );
@@ -385,8 +391,8 @@ public class MainFrame extends JFrame{
                         }
                         
                         if(isNumeric(minorRadius) && isNumeric(majorRadius)){
-                            //TODO
-                            //draw Torus
+                            Torus myTorus = new Torus();
+                            myTorus.drawGraphics();
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid major or minor input" );
@@ -400,17 +406,6 @@ public class MainFrame extends JFrame{
         });         
     }
 
-
-
-
-    // @Override
-    // public void actionPerformed(ActionEvent e) {
-    //     String selected = e.getActionCommand();
-    //     if(selected.equals("Circle")){
-    //         System.out.println("Circle is selected");
-    //     }
-        
-    // }
 
     public static boolean isNumeric(String test){
         if(test == null){
