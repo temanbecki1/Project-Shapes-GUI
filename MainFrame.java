@@ -267,8 +267,14 @@ public class MainFrame extends JFrame{
                         String radius = JOptionPane.showInputDialog("Enter a valid radius : ");
                         
                         if(isNumeric(radius)){
-                            //TODO
-                            //draw sphere
+
+
+                            JFrame frame = new JFrame();
+                            JLabel jlabel = new JLabel("Your sphere :");
+                            frame.add(jlabel, BorderLayout.PAGE_START);
+
+                            Sphere mySphere = new Sphere();
+                            mySphere.drawGraphics();
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid radius input" );
@@ -293,8 +299,8 @@ public class MainFrame extends JFrame{
                         String edgeLength = JOptionPane.showInputDialog("Enter an edge length : ");
                         
                         if(isNumeric(edgeLength)){
-                            //TODO
-                            //draw cube
+                            //read cube image from file
+
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid edge length input" );
