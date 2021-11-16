@@ -18,7 +18,7 @@ public class MainFrame extends JFrame{
     final static boolean shouldFill = true;
 
     // private String shape;
-    private JButton[] selectShape;
+    // private JButton[] selectShape;
     JPanel drawings;
 
 
@@ -108,8 +108,15 @@ public class MainFrame extends JFrame{
                         String radius = JOptionPane.showInputDialog("Enter a valid radius : ");
                         
                         if(isNumeric(radius)){
-                            //TODO
-                            //draw circle
+                            JFrame frame = new JFrame();
+                            JLabel jlabel = new JLabel("Your Circle :");
+                            frame.add(jlabel, BorderLayout.PAGE_START);
+
+                            Circle myCircle = new Circle();
+
+                            frame.add(myCircle);
+                            frame.setSize(400,400);
+                            frame.setVisible(true);
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid radius input" );
@@ -170,8 +177,15 @@ public class MainFrame extends JFrame{
                         String heightLength = JOptionPane.showInputDialog("Enter the height length");
                         
                         if(isNumeric(baseLength) && isNumeric(heightLength)){
-                            //TODO
-                            //draw triangle
+                            JFrame frame = new JFrame();
+                            JLabel jlabel = new JLabel("Your triangle :");
+                            frame.add(jlabel, BorderLayout.PAGE_START);
+
+                            Triangle myTriangle = new Triangle();
+
+                            frame.add(myTriangle);
+                            frame.setSize(400,400);
+                            frame.setVisible(true);
                             break;
                         } else {
                             JOptionPane.showMessageDialog(null, "Invalid base or height length input" );

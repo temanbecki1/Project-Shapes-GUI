@@ -2,15 +2,16 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.*;
 
-public class Square extends Canvas {
 
-    public Square(){
+public class Circle extends Canvas{
+
+    public Circle(){
 
     }
+    
 
     public void paint(Graphics g){
         g.setColor(Color.BLUE);
-        g.fillRect(50, 50, 175, 175);       
+        g.drawOval(30,130,150, 150); 
     }
-    
 }
