@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /*
+*   FileName : GUI.java
 *   Author: Teman Beck
 *   Date: November 14th, 2021
 *   This class defines our GUI for our main program

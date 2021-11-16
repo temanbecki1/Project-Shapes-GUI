@@ -1,5 +1,4 @@
 import java.awt.*;
-// import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 import javax.swing.JFrame;
@@ -8,11 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /*
-*Author : Teman Beck
-*CMSC 335 Project 2
-*Date : November 15th, 2021
-*This class extends our GUI class and adds all relative Java Swing components to the GUI
-*This class adds action listeners and functionality to all shape buttons.
+*   FileName : Torus.java
+*   Author : Teman Beck
+*   CMSC 335 Project 2
+*   Date : November 15th, 2021
+*   This class creates our Torus constructor and returns 3D images to screen
 */
 
 public class Torus {
