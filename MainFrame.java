@@ -423,8 +423,11 @@ public class MainFrame extends JFrame{
             return false;
         }
         try{
-            Double.parseDouble(test);
-            return true;
+            Double.parseDouble(test);                                                           //test for Double data type
+            if(Double.parseDouble(test) > 0){                                                   //test if Double is positive number
+                return true;
+            }
+            return false;
         } catch(NumberFormatException nfe){
             return false;
         }
